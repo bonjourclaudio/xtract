@@ -1,0 +1,90 @@
+<div class="home">
+  <div class="title-bar">
+    <h2>Diese Kaffeemaschine visualisiert die Brühung und generiert so eine neue, einzigartige Grafik.</h2>
+  </div>
+  <div class="model">
+
+    <!-- 3d model of the coffee machine -->
+    <div class="model__image-container">
+      <div class="model__image-container__elem">
+        <img src="../../assets/kaffi1.png" alt="">
+      </div>
+      <div class="model__image-container__elem">
+        <img src="../../assets/kaffi2.png" alt="">
+      </div>
+      <div class="model__image-container__elem">
+        <img src="../../assets/kaffi3.png" alt="">
+      </div>
+    </div>
+
+  </div>
+  <div class="test">
+    <div class="espresso-container">
+      <div class="info-container" *ngIf="liveExtraction">
+        <div class="info-container__element">
+          <span>Time</span>
+          <span>{{ liveExtraction.extractionTime.toFixed(1) }} s</span>
+        </div>
+        <div class="info-container__element">
+          <span>Flow Rate</span>
+          <span>{{ liveExtraction.flowRate.toFixed(2) }} mL / s</span>
+        </div>
+        <div class="info-container__element">
+          <span>Pressure</span>
+          <span>{{ liveExtraction.pressure.toFixed(1) }} bars</span>
+        </div>
+        <div class="info-container__element">
+          <span>Current Yield</span>
+          <span>{{ liveExtraction.currentYield.toFixed(2) }} g</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #visualisation class="visualisation">
+    <app-visual [animate]="shouldAnimate" [container]="visualisationContainer" [liveExtraction]="liveExtraction" [goalYield]="espressoParams.yieldAmount"></app-visual>
+  </div>
+  <div class="form">
+    <!-- Yield -->
+    <div class="form__element">
+      <label for="targetYield">Yield Amount</label>
+      <span class="form__element__value">{{ espressoParams.yieldAmount }} (g)</span>
+      <input id="targetYield" type="range" min="0" max="60" class="input-slider"
+        [(ngModel)]="espressoParams.yieldAmount">
+    </div>
+
+    <!-- Pressure -->
+    <div class="form__element">
+      <label for="machinePressure">Pressure</label>
+      <span class="form__element__value">{{ espressoParams.machinePressure }} (bars)</span>
+      <input id="machinePressure" type="range" min="2" max="10" class="input-slider"
+        [(ngModel)]="espressoParams.machinePressure">
+    </div>
+
+    <!-- Pre-Infusion Pressure -->
+    <div class="form__element">
+      <label for="preInfusionPressure">Pre Infusion Pressure</label>
+      <span class="form__element__value">{{ espressoParams.preInfusionPressure }} (bars)</span>
+      <input id="preInfusionPressure" type="range" min="2" max="10" class="input-slider"
+        [(ngModel)]="espressoParams.preInfusionPressure">
+    </div>
+
+    <!-- Pre-Infusion Duration -->
+    <div class="form__element">
+      <label for="preInfusionDuration">Pre Infusion Duration</label>
+      <span class="form__element__value">{{ espressoParams.preInfusionDuration }} (s)</span>
+      <input id="preInfusionDuration" type="range" min="0" max="30" class="input-slider"
+        [(ngModel)]="espressoParams.preInfusionDuration">
+    </div>
+
+    <div class="form__actions">
+      <div class="form__actions__submit">
+        <button *ngIf="!extractionSubscription" (click)="startExtraction()" class="btn-invert">
+          Brew
+        </button>
+        <button *ngIf="!!extractionSubscription" (click)="stopExtraction()" class="btn-invert">
+          Cancel brewing
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

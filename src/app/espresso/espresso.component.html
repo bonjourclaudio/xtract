@@ -1,0 +1,54 @@
+<div>
+  <h1>Espresso Extraction Simulator</h1>
+
+  <!-- Target yield configuration -->
+  <div>
+    <label for="targetYield">Target Yield (g):</label>
+    <input type="number" id="targetYield" [(ngModel)]="espressoParams.yieldAmount" />
+  </div>
+
+  <!-- Machine pressure configuration -->
+  <div>
+    <label for="machinePressure">Machine Pressure (bars):</label>
+    <input type="number" id="machinePressure" [(ngModel)]="espressoParams.machinePressure" />
+  </div>
+
+  <!-- Pre-infusion configuration -->
+  <div>
+    <label for="preInfusionPressure">Pre-Infusion Pressure (bars):</label>
+    <input type="number" id="preInfusionPressure" [(ngModel)]="espressoParams.preInfusionPressure" />
+  </div>
+  <div>
+    <label for="preInfusionDuration">Pre-Infusion Duration (s):</label>
+    <input type="number" id="preInfusionDuration" [(ngModel)]="espressoParams.preInfusionDuration" />
+  </div>
+
+  <!-- Buttons to control extraction -->
+  <div>
+    <button (click)="startExtraction()" [disabled]="!!extractionSubscription">Start Extraction</button>
+    <button (click)="stopExtraction()" [disabled]="!extractionSubscription">Stop Extraction</button>
+  </div>
+
+  <!-- Display extraction results -->
+  <div *ngIf="extractionResults.length > 0">
+    <h2>Extraction Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Time (s)</th>
+          <th>Flow Rate (mL/s)</th>
+          <th>Pressure (bars)</th>
+          <th>Yield (g)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of extractionResults">
+          <td>{{ result.extractionTime.toFixed(1) }}</td>
+          <td>{{ result.flowRate.toFixed(2) }}</td>
+          <td>{{ result.pressure.toFixed(1) }}</td>
+          <td>{{ result.currentYield.toFixed(2) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
