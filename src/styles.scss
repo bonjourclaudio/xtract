@@ -1,3 +1,5 @@
-@use '../node_modules/scss-reset/src/scss/_reset.scss';
+@use "../node_modules/scss-reset/src/scss/_reset.scss";
 @import "_base.scss";
 @import "_vars.scss";
+
+$layout-breakpoint-small: 960px;
