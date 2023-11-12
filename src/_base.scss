@@ -1,0 +1,76 @@
+@import "_vars.scss";
+
+body {
+    color: $primary;
+    background-color: $bg;
+    font-family: "Maax Mono";
+}
+
+.page {
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+input {
+    background-color: $bg;
+    border-bottom: 1px solid $primary;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    color: $primary;
+    width: 100%;
+}
+
+.input-slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 1rem; /* Set a specific slider handle width */
+        height: 1rem; /* Slider handle height */
+        background: $primary; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+        border-radius: 100%;
+    }
+
+}
+
+.input-slider
+
+label {
+    font-weight: 900;
+}
+
+button {
+    color: $primary;
+    border: 1px solid $primary;
+    padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+
+    &:disabled {
+        color: grey;
+        border-color: grey;
+        
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.btn-invert {
+    color: $bg;
+    border-color: $bg;
+    background-color: $primary;
+}

@@ -1,0 +1,101 @@
+@import "../../styles.scss";
+
+.home {
+    height: 100vh;
+    width: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10,10vw);
+    grid-template-rows: repeat(10,1fr);
+    grid-template-areas: 
+    "title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar"
+    ". . . . . . . . . ."
+    "model model model model model . visualisation visualisation visualisation ."
+    "model model model model model . visualisation visualisation visualisation ."
+    "model model model model model . visualisation visualisation visualisation ."
+    "model model model model model . . . . ."
+    "model model model model model . form form form ."
+    "model model model model model . form form form ."
+    ". test test test . . form form form ."
+    ". test test test . . . . . ."
+    ;
+}
+
+.visualisation {
+    grid-area: visualisation;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-bar {
+    grid-area: title-bar;
+    grid-template-columns: repeat(10,10vw);
+    grid-template-rows: auto;
+    z-index: 2
+}
+
+.model {
+    grid-area: model;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    canvas {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.test {
+    grid-area: test;
+}
+
+.form {
+    grid-area: form;
+
+    &__element {
+        padding-bottom: 1rem;
+
+        &__value {
+            float: right;
+        }
+    }
+
+    &__actions {
+        display: inline-flex;
+        width: 100%;
+        justify-content: space-between;
+
+        &__reset {}
+
+        &__submit {}
+    }
+}
+
+.info-container {
+    &__element {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $primary;
+        padding-top: 5px;
+    }
+}
+
+.model {
+    &__image-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 90vh;
+        overflow: auto;
+        border: 1px solid $primary;
+
+        &__elem {
+            width: 100%;
+            padding: 4rem;
+            border-bottom: 1px solid $primary;
+        }
+    }
+}
