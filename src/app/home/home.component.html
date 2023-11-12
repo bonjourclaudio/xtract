@@ -41,7 +41,8 @@
     </div>
   </div>
   <div #visualisation class="visualisation">
-    <app-visual [animate]="shouldAnimate" [container]="visualisationContainer" [liveExtraction]="liveExtraction" [goalYield]="espressoParams.yieldAmount"></app-visual>
+    <app-visual [animate]="shouldAnimate" [container]="visualisationContainer" [liveExtraction]="liveExtraction"
+      [goalYield]="espressoParams.yieldAmount" [run]="shouldAnimate"></app-visual>
   </div>
   <div class="form">
     <!-- Yield -->

@@ -1,16 +1,15 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BrewService } from '../brew.service';
 import { BrewProfile, EspressoResults, ExtractionResult } from '../brew_profile';
-import { Observable, Subscription, interval,  } from 'rxjs';
+import { Observable, Subscription, interval, } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  @ViewChild("canvas") private canvasRef: any;
   @ViewChild("visualisation") visualisationContainer?: any;
 
   espressoParams = {
@@ -18,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     yieldAmount: 36,
     tampingPressure: 30,
     machinePressure: 9,
-    preInfusionPressure: 2, 
+    preInfusionPressure: 2,
     preInfusionDuration: 5,
     grindSizeFactor: 0.65
   };
@@ -30,9 +29,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   shouldAnimate = false;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     this.stopExtraction();

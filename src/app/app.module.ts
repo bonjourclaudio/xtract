@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EspressoComponent } from './espresso/espresso.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VisualComponent } from './visual/visual.component';
-import { ModelComponent } from './model/model.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { ModelComponent } from './model/model.component';
     HomeComponent,
     EspressoComponent,
     VisualComponent,
-    ModelComponent
   ],
   imports: [
     BrowserModule,
