@@ -7,16 +7,16 @@
     grid-template-columns: repeat(10, 10vw);
     grid-template-rows: repeat(10, 1fr);
     grid-template-areas:
-        "title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar"
+        "title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar title-bar info"
         ". . . . . . . . . ."
-        "model model model model model . visualisation visualisation visualisation ."
-        "model model model model model . visualisation visualisation visualisation ."
-        "model model model model model . visualisation visualisation visualisation ."
-        "model model model model model . . . . ."
-        "model model model model model . form form form ."
-        "model model model model model . form form form ."
-        ". test test test . . form form form ."
-        ". test test test . . . . . .";
+        "model model model model . visualisation visualisation visualisation visualisation ."
+        "model model model model . visualisation visualisation visualisation visualisation ."
+        "model model model model . visualisation visualisation visualisation visualisation ."
+        "model model model model . . . . . ."
+        "model model model model . form form form form ."
+        "model model model model . form form form form ."
+        "test test test test . form form form form ."
+        "test test test test . . . . . .";
 
     @media (max-width: $layout-breakpoint-small) {
         display: flex;
@@ -25,11 +25,23 @@
     }
 }
 
+.info {
+    grid-area: info;
+    text-align: right;
+    font-size: 1.4rem;
+    text-decoration: underline;
+
+    a {
+        color: $primary;
+    }
+}
+
 .visualisation {
     grid-area: visualisation;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 
     @media (max-width: $layout-breakpoint-small) {
         width: 100%;
@@ -42,6 +54,7 @@
     grid-template-columns: repeat(10, 10vw);
     grid-template-rows: auto;
     z-index: 2;
+    font-size: 1.4rem;
 }
 
 .model {
@@ -93,12 +106,20 @@
 }
 
 .info-container {
+    background-color: rgba($color: #000000, $alpha: 1);
+    border: 1px solid $primary;
     &__element {
         width: 100%;
         display: inline-flex;
         justify-content: space-between;
         border-bottom: 1px solid $primary;
         padding-top: 5px;
+        padding-left: 3px;
+        padding-right: 3px;
+
+        &:nth-last-child(1) {
+            border: none;
+        }
     }
 }
 
@@ -108,14 +129,18 @@
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-        height: 90vh;
+        height: 80vh;
         overflow: auto;
         border: 1px solid $primary;
 
         &__elem {
             width: 100%;
-            padding: 4rem;
+
             border-bottom: 1px solid $primary;
+
+            &:nth-last-child(1) {
+                border: none;
+            }
         }
     }
 }

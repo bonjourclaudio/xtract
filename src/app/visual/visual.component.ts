@@ -46,10 +46,10 @@ export class VisualComponent implements OnDestroy, OnChanges {
         }
 
         canvas.parent('sketch-container');
+        p.pixelDensity(30);
       };
 
       p.draw = () => {
-
         if (this.liveExtraction) {
           // Basic Line Animation
           // let flowRateParam = (10 * this.liveExtraction.flowRate) * Math.random();
@@ -67,7 +67,7 @@ export class VisualComponent implements OnDestroy, OnChanges {
 
           // Yield Shape
           for (var i = 0; i < yieldParam; i++) {
-            p.stroke(51, 0, 255)
+            p.stroke(132, 71, 255)
             p.strokeWeight(1.2)
             p.noFill()
 
@@ -91,7 +91,7 @@ export class VisualComponent implements OnDestroy, OnChanges {
 
           // Flow Rate Shape
           for (var i = 0; i < flowRateParam; i++) {
-            p.stroke(180, 20, 0)
+            p.stroke(this.randomizeColorValue(185, 5), this.randomizeColorValue(192, 5), this.randomizeColorValue(218, 1))
             p.noFill()
             p.strokeWeight(1.2)
 
@@ -111,7 +111,7 @@ export class VisualComponent implements OnDestroy, OnChanges {
 
           // Pressure Shape
           for (var i = 0; i < pressureParam; i++) {
-            p.stroke(204, 255, 0)
+            p.stroke(this.randomizeColorValue(204, 10), this.randomizeColorValue(255, 5), this.randomizeColorValue(0, 1))
             p.noFill()
             p.strokeWeight(1.2)
 
@@ -138,6 +138,12 @@ export class VisualComponent implements OnDestroy, OnChanges {
 
     this.p5 = new p5(sketch);
   }
+
+  randomizeColorValue(value: number, maxRandValue: number): number {
+    var rand = Math.random() * (maxRandValue - 0.1) + 0.1;
+    return value * rand;
+  }
+
 }
 
 

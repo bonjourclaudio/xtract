@@ -1,4 +1,5 @@
 <div class="home">
+  <div class="info"><a routerLink="/info">Info</a></div>
   <div class="title-bar">
     <h2>Diese Kaffeemaschine visualisiert die Brühung und generiert so eine neue, einzigartige Grafik.</h2>
   </div>
@@ -82,7 +83,7 @@
         <button *ngIf="!extractionSubscription" (click)="startExtraction()" class="btn-invert">
           Brew
         </button>
-        <button *ngIf="!!extractionSubscription" (click)="stopExtraction()" class="btn-invert">
+        <button *ngIf="extractionSubscription" (click)="stopExtraction()" class="btn-invert">
           Cancel brewing
         </button>
       </div>

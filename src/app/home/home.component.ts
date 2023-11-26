@@ -2,7 +2,8 @@ import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetecto
 import { FormControl, FormGroup } from '@angular/forms';
 import { BrewService } from '../brew.service';
 import { BrewProfile, EspressoResults, ExtractionResult } from '../brew_profile';
-import { Observable, Subscription, interval, } from 'rxjs';
+import { Observable, Subscription, interval, takeWhile, } from 'rxjs';
+import { Expression } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -40,6 +41,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   startExtraction(): void {
     this.stopExtraction(); // Stop any ongoing extraction before starting a new one
 
+    // Randomize grind size factor with a randomness between 0.65 and 0.676
+    this.espressoParams.grindSizeFactor = this.espressoParams.grindSizeFactor * (Math.random() * (1.04 - 1) + 1);
+
     this.shouldAnimate = true;
 
     this.extractionResults = [];
@@ -56,6 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const targetPressure = 9; // 9 bars, adjust as needed
 
     this.extractionSubscription = interval$.subscribe(() => {
+
       // Calculate maxBrewTime just before using it
       const maxBrewTime = this.calculateMaxBrewTime();
 

@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+
+.back-btn {
+    font-size: 1.4rem;
+    text-decoration: underline;
+
+    a {
+        color: $primary;
+    }
+
+    margin-bottom: 10vh;
+}
+
+.info-container {
+    width: 60vw;
+    font-size: 1.4rem;
+}
