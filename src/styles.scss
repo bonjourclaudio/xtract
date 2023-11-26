@@ -3,3 +3,8 @@
 @import "_vars.scss";
 
 $layout-breakpoint-small: 960px;
+
+a {
+    color: white;
+    text-decoration: underline;
+}

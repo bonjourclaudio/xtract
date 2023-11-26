@@ -91,7 +91,7 @@ export class VisualComponent implements OnDestroy, OnChanges {
 
           // Flow Rate Shape
           for (var i = 0; i < flowRateParam; i++) {
-            p.stroke(this.randomizeColorValue(185, 5), this.randomizeColorValue(192, 5), this.randomizeColorValue(218, 1))
+            p.stroke(this.randomizeColorValue(200, 5), this.randomizeColorValue(120, 5), this.randomizeColorValue(80, 1))
             p.noFill()
             p.strokeWeight(1.2)
 
@@ -140,8 +140,8 @@ export class VisualComponent implements OnDestroy, OnChanges {
   }
 
   randomizeColorValue(value: number, maxRandValue: number): number {
-    var rand = Math.random() * (maxRandValue - 0.1) + 0.1;
-    return value * rand;
+    // var rand = Math.random() * (maxRandValue - 0.1) + 0.1;
+    return value;
   }
 
 }
