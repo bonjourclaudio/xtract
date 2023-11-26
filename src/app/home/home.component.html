@@ -3,22 +3,8 @@
   <div class="title-bar">
     <h2>Diese Kaffeemaschine visualisiert die Brühung und generiert so eine neue, einzigartige Grafik.</h2>
   </div>
-  <div class="model">
 
-    <!-- 3d model of the coffee machine -->
-    <div class="model__image-container">
-      <div class="model__image-container__elem">
-        <img src="../../assets/kaffi1.png" alt="">
-      </div>
-      <div class="model__image-container__elem">
-        <img src="../../assets/kaffi2.png" alt="">
-      </div>
-      <div class="model__image-container__elem">
-        <img src="../../assets/kaffi3.png" alt="">
-      </div>
-    </div>
-
-  </div>
+  <!-- Live extraction params -->
   <div class="test">
     <div class="espresso-container">
       <div class="info-container" *ngIf="liveExtraction">
@@ -41,10 +27,14 @@
       </div>
     </div>
   </div>
+
+  <!-- P5JS Canvas-->
   <div #visualisation class="visualisation">
     <app-visual [animate]="shouldAnimate" [container]="visualisationContainer" [liveExtraction]="liveExtraction"
       [goalYield]="espressoParams.yieldAmount" [run]="shouldAnimate"></app-visual>
   </div>
+
+  <!-- Param Forms-->
   <div class="form">
     <!-- Yield -->
     <div class="form__element">
@@ -89,4 +79,23 @@
       </div>
     </div>
   </div>
+
+  <!-- Model Images -->
+  <div class="model">
+
+    <!-- 3d model of the coffee machine -->
+    <div class="model__image-container">
+      <div class="model__image-container__elem">
+        <img src="../../assets/kaffi1.png" alt="">
+      </div>
+      <div class="model__image-container__elem">
+        <img src="../../assets/kaffi2.png" alt="">
+      </div>
+      <div class="model__image-container__elem">
+        <img src="../../assets/kaffi3.png" alt="">
+      </div>
+    </div>
+
+  </div>
+
 </div>
