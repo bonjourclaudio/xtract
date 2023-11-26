@@ -3,6 +3,9 @@
 .back-btn {
     font-size: 1.4rem;
     text-decoration: underline;
+    @media (max-width: $layout-breakpoint-small) {
+        font-size: 1.2rem;
+    }
 
     a {
         color: $primary;
@@ -14,4 +17,8 @@
 .info-container {
     width: 60vw;
     font-size: 1.4rem;
+
+    @media (max-width: $layout-breakpoint-small) {
+        font-size: 1.2rem;
+    }
 }
