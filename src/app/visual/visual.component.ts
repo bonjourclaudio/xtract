@@ -46,11 +46,12 @@ export class VisualComponent implements OnDestroy, OnChanges {
         }
 
         canvas.parent('sketch-container');
-
-        //p.pixelDensity(30);
       };
 
       p.draw = () => {
+
+        p.ellipse(56, 46, 55, 55);
+
         if (this.liveExtraction) {
           // Basic Line Animation
           // let flowRateParam = (10 * this.liveExtraction.flowRate) * Math.random();
