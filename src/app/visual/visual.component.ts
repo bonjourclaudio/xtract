@@ -46,7 +46,8 @@ export class VisualComponent implements OnDestroy, OnChanges {
         }
 
         canvas.parent('sketch-container');
-        p.pixelDensity(30);
+
+        //p.pixelDensity(30);
       };
 
       p.draw = () => {
